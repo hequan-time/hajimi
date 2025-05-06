@@ -43,3 +43,9 @@ jobs:
           ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
+FROM ghcr.io/hequan-time/hajimi:latest
+
+EXPOSE 7860
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+
